@@ -2,6 +2,7 @@
 #https://leetcode.com/problems/3sum/discuss/7393/
 #Straight-forward-Python-AC-O(n2)-
 #solution-with-decent-explanation
+#even though it is tle but the thought is good
 class Solution:
     # @param {integer[]} nums
     # @return {integer[][]}
