@@ -3,6 +3,7 @@ class Solution:
         if not nums:
             return 0
         newTail = 0
+        #can not creat a new list :(
         for i in range(1, len(nums)):
             if nums[i] != nums[newTail]:
                 newTail += 1
