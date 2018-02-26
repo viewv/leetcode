@@ -1,6 +1,7 @@
 #copy from https://leetcode.com/problems/3sum/discuss
 # /7392/Python-easy-to-understand-solution-(O(n*n)-time).
 #a very good code!
+#I need to rember
 class Solution:
     def threeSum(self, nums):
         res = []
