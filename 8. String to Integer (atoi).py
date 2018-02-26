@@ -1,3 +1,5 @@
+#I don't fully understand this code
+#copy from leetcode discuss
 class Solution(object):
     def myAtoi(self, s):
         if len(s) == 0 : return 0
