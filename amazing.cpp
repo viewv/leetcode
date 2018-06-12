@@ -1,16 +1,13 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
-    QCoreApplication a(argc, argv);
-
     bool transport(int **MT, int **M, int m, int n);
 
     int m, n;
     cout << "Please enter m and n: ";
     cin >> m >> n;
-
     int A[m][n], B[n][m];
     int i, j;
     cout << "Please enter matrix A" << endl;
@@ -32,7 +29,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    return a.exec();
+    return 0;
 }
 bool transport(int **MT, int **M, int m, int n)
 {
