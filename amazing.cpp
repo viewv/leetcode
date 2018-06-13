@@ -1,47 +1,21 @@
-#include <iostream>
+#include<iostream>
+
 using namespace std;
 
-int main()
-{
-    bool transport(int **MT, int **M, int m, int n);
+class Clock{
+    public:
+        void setTime(int newH, int newM);
+    private:
+        int h,m;
+};
 
-    int m, n;
-    cout << "Please enter m and n: ";
-    cin >> m >> n;
-    int A[m][n], B[n][m];
-    int i, j;
-    cout << "Please enter matrix A" << endl;
-    for (i = 0; i < m; i++)
-    {
-        cout << "please the element of line " << i + 1 << ":";
-        for (j = 0; j < n; j++)
-            cin >> A[i][j];
-    }
-
-    cout << "the transport B is" << endl;
-    if (transport((int **)B, (int **)A, m, n))
-    {
-        for (i = 0; i < n; i++)
-        {
-            for (j = 0; j < m; j++)
-                cout << B[i][j] << " ";
-            cout << endl;
-        }
-    }
-
-    return 0;
+void Clock::setTime(int newH,int newM){
+    h=newH;
+    m=newM;
 }
-bool transport(int **MT, int **M, int m, int n)
-{
-    if (m == 0 || n == 0)
-        return false;
-    int i, j;
-    for (i = 0; i < m; i++)
-    {
-        for (j = 0; j < n; j++)
-        {
-            *((int *)MT + m * j + i) = *((int *)M + n * i + j);
-        }
-    }
-    return true;
+
+int main(){
+    Clock clock;
+    clock.setTime(5,30);
+    return 0;
 }
