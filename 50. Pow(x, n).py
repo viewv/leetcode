@@ -13,4 +13,10 @@ class Solution:
 
 solobj = Solution()
 
-print(solobj.myPow(2,10))
+
+num = input('Please input!')
+num = num.split()
+a = int(num[0])
+b = int(num[1])
+
+print(solobj.myPow(a,b))

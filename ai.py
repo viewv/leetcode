@@ -3,6 +3,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 tf.set_random_seed(1)
 np.random.seed(1)
 
@@ -14,6 +15,9 @@ mnist = input_data.read_data_sets('./mnist', one_hot=True)
 test_x = mnist.test.images[:2000]
 test_y = mnist.test.labels[:2000]
 
+print("Hello")
+
+
 # plot one example
 print(mnist.train.images.shape)     # (55000, 28 * 28)
 print(mnist.train.labels.shape)   # (55000, 10)
@@ -21,10 +25,12 @@ plt.imshow(mnist.train.images[0].reshape((28, 28)), cmap='gray')
 plt.title('%i' % np.argmax(mnist.train.labels[0]))
 plt.show()
 
+
 tf_x = tf.placeholder(tf.float32, [None, 28*28]) / 255.
 # (batch, height, width, channel)
 image = tf.reshape(tf_x, [-1, 28, 28, 1])
 tf_y = tf.placeholder(tf.int32, [None, 10])            # input y
+
 
 # CNN
 conv1 = tf.layers.conv2d(   # shape (28, 28, 1)
