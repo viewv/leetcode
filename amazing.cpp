@@ -2,6 +2,8 @@
 
 using namespace std;
 
+class nComplex; //前向声明
+
 class Complex
 {
   private:
@@ -15,6 +17,7 @@ class Complex
     ~Complex() {}
     Complex(const Complex &obj);
     void display() const;
+    friend nComplex; //声明为友元类
     //下面的函数都是常引用函数
     Complex operator+(const Complex &a);
     Complex operator-(const Complex &a);
@@ -23,9 +26,26 @@ class Complex
     Complex operator++(int);
     //重载<<使用友元函数
     friend ostream &operator<<(ostream &out, const Complex &a);
+    //注意下面都函数是在重载>>，这个时候不可以使用常引用，使用常引用会使对象无法
+    //被修改，导致无法传入参数，陷入死循环
     friend istream &operator>>(istream &in, Complex &a);
     Complex &operator[](int);
 };
+
+class nComplex : public Complex
+{
+  private:
+    double vsum;
+
+  public:
+    nComplex(double r = 0, double u = 0, double v = 0) : Complex(r, u), vsum(v) {}
+    double sum(const Complex &a);
+};
+
+double nComplex::sum(const Complex &a)
+{
+    return (a.real + a.imag);
+}
 
 Complex::Complex(const Complex &obj)
 {
@@ -155,6 +175,9 @@ int main(int argc, char const *argv[])
     cout << "Enter The Complex Number" << endl;
     cin >> arrayofcomplex[index];
     cout << "You Just Enter: ";
-    cout << arrayofcomplex[index];
+    cout << arrayofcomplex[index] << endl;
+    cout << "--------------------------" << endl;
+    nComplex sumComplex(2.0, 3.0, 5.0);
+    cout << sumComplex << endl;
     return 0;
 }
