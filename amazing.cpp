@@ -11,14 +11,20 @@ class Complex
   public:
     Complex(double r = 0.0, double i = 0.0) : real(r), imag(i)
     {
-    }
+    } //这其实是一个内联函数，为了简单就直接放在类内了，是隐式声明类内函数
     ~Complex() {}
     Complex(const Complex &obj);
     void display() const;
+    //下面的函数都是常引用函数
     Complex operator+(const Complex &a);
     Complex operator-(const Complex &a);
+    Complex operator*(const Complex &a);
     Complex &operator++();
     Complex operator++(int);
+    //重载<<使用友元函数
+    friend ostream &operator<<(ostream &out, const Complex &a);
+    friend istream &operator>>(istream &in, Complex &a);
+    Complex &operator[](int);
 };
 
 Complex::Complex(const Complex &obj)
@@ -67,11 +73,47 @@ Complex Complex::operator++(int)
     return old;
 }
 
+Complex Complex::operator*(const Complex &a)
+{
+    return Complex(real * a.real, imag * a.imag);
+}
+
+Complex &Complex::operator[](int index)
+{
+}
+
+ostream &operator<<(ostream &out, const Complex &a)
+{
+    if (a.imag < 0)
+    {
+        out << a.real << a.real << "i";
+    }
+    else if (a.imag > 0)
+    {
+        out << a.real << "+" << a.imag << "i";
+    }
+    else
+    {
+        cout << a.real;
+    }
+    return out;
+}
+
+istream &operator>>(istream &in, Complex &a)
+{
+    cout << "Input a Complex Number as x(real) x(imag)";
+    in >> a.real >> a.imag;
+    return in;
+}
+
 int main(int argc, char const *argv[])
 {
     Complex e;
     Complex a(9, 5);
-    Complex b(3, 10);
+    Complex b(3, 2);
+    cout << "a*b=";
+    Complex g(a * b);
+    g.display();
     cout << "a+b=";
     Complex c(a + b);
     c.display();
@@ -97,5 +139,22 @@ int main(int argc, char const *argv[])
     (a++).display();
     cout << "In Fact a is change into" << endl;
     a.display();
+    cout << "--------------------------" << endl;
+    cout << "use << to show information" << endl;
+    cout << "a=" << a << endl;
+    cout << "b=" << b << endl;
+    Complex z(b - a);
+    cout << "b-a=" << z << endl;
+    cout << "--------------------------" << endl;
+    Complex arrayofcomplex[10];
+    cout << arrayofcomplex[1] << endl;
+    int index;
+    cout << "--------------------------" << endl;
+    cout << "Enter Index (<10)" << endl;
+    cin >> index;
+    cout << "Enter The Complex Number" << endl;
+    cin >> arrayofcomplex[index];
+    cout << "You Just Enter: ";
+    cout << arrayofcomplex[index];
     return 0;
 }
