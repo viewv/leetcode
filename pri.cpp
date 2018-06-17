@@ -126,13 +126,20 @@ class Circle
     T r;
 
   public:
+    const T PI = 3.14;
     Circle(T R = 0) : r(R){};
     ~Circle(){};
+    T getArea()
+    {
+        return (PI * r * r);
+    }
 };
-
 
 int main(int argc, char const *argv[])
 {
-
+    Circle<float> small(3.0);
+    Circle<int> big(7);
+    cout << "Small Circle's Area: " << small.getArea() << endl;
+    cout << "Big Circle's Area: " << big.getArea() << endl;
     return 0;
 }
