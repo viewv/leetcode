@@ -26,8 +26,7 @@ class Complex
     Complex operator++(int);
     //重载<<使用友元函数
     friend ostream &operator<<(ostream &out, const Complex &a);
-    //注意下面都函数是在重载>>，这个时候不可以使用常引用，使用常引用会使对象无法
-    //被修改，导致无法传入参数，陷入死循环
+    //注意下面都函数是在重载>>，这个时候不可以使用常引用，使用常引用会使对象无法被修改，导致无法传入参数，陷入死循环
     friend istream &operator>>(istream &in, Complex &a);
     Complex &operator[](int);
 };
