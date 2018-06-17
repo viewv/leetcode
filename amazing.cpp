@@ -154,8 +154,9 @@ int main(int argc, char const *argv[])
     e.display();
     cout << "++a=";
     (++a).display();
-    cout << "a++=";
-    (a++).display();
+    cout << "a= " << a << endl;
+    cout << "++ ++ a=";
+    (++++a).display();
     cout << "In Fact a is change into" << endl;
     a.display();
     cout << "--------------------------" << endl;
@@ -178,5 +179,6 @@ int main(int argc, char const *argv[])
     cout << "--------------------------" << endl;
     nComplex sumComplex(2.0, 3.0, 5.0);
     cout << sumComplex << endl;
+    cout << "--------------------------" << endl;
     return 0;
 }

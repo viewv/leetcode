@@ -1,9 +1,6 @@
 #!/bin/bash
 
-i=1
-until ((i > 100))
+for((i=0;i<5;i++));
 do
-    echo $i
-    i=`expr $i + 1`
+    echo ` expr $i + 2 `
 done
-

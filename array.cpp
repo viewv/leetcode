@@ -18,16 +18,16 @@ class Array
 
     template <class S>
     friend ostream &operator<<(ostream &out, const Array<S> &rhs);
-    template <class K>
-    friend istream &operator>>(istream &in, Array<K> &rhs);
+    template <class S>
+    friend istream &operator>>(istream &in, Array<S> &rhs);
 
     Array<T> &operator+(const Array<T> &b);
     Array<T> &operator-(const Array<T> &b);
 
-    T &operator[](int i); //重载[] ,使Array对象可以起到C++普通数组的作用
-    //const T &operator[](int i) const; //“[]”运算符针对const的重载
-    operator T *() const;       //重载到T*类型的转换，使Array对象可以起到C++普通数组的作用
-    operator const T *() const; //到T*类型转换操作符针对const的重载
+    T &operator[](int i);             //重载[] ,使Array对象可以起到C++普通数组的作用
+    const T &operator[](int i) const; //“[]”运算符针对const的重载
+    operator T *() const;             //重载到T*类型的转换，使Array对象可以起到C++普通数组的作用
+    operator const T *() const;       //到T*类型转换操作符针对const的重载
 
     int getsize() const; //取数组的大小
     void resize(int sz); //修改数组的大小
@@ -60,8 +60,8 @@ ostream &operator<<(ostream &out, const Array<S> &rhs)
     return out;
 }
 
-template <class K>
-istream &operator>>(istream &in, Array<K> &rhs)
+template <class S>
+istream &operator>>(istream &in, Array<S> &rhs)
 {
     for (int i = 0; i < rhs.getsize(); i++)
     {
@@ -140,12 +140,12 @@ Array<T> &Array<T>::operator-(const Array<T> &b)
 }
 
 //重载下标运算符，实现与普通数组一样通过下标访问元素，并且具有越界检查功能
-/*template <class T>
+template <class T>
 const T &Array<T>::operator[](int n) const
 {
     assert(n >= 0 && n < size);
     return list[n];
-}*/
+}
 
 template <class T>
 Array<T>::operator const T *() const
