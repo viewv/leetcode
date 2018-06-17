@@ -6,6 +6,7 @@ template <class T>
 class Array
 {
   private:
+    //实际上类模板里面的Array<T>中的T指的就是这个地方
     T *list;  //T类型指针，用于存放动态分配的数组内存首地址
     int size; //数组大小（元素个数）
   public:
@@ -20,8 +21,8 @@ class Array
     template <class K>
     friend istream &operator>>(istream &in, Array<K> &rhs);
 
-    Array<T> &operator+(const Array<int> &b);
-    Array<T> &operator-(const Array<int> &b);
+    Array<T> &operator+(const Array<T> &b);
+    Array<T> &operator-(const Array<T> &b);
 
     T &operator[](int i); //重载[] ,使Array对象可以起到C++普通数组的作用
     //const T &operator[](int i) const; //“[]”运算符针对const的重载
@@ -99,7 +100,7 @@ Array<T> &Array<T>::operator=(const Array<T> &rhs)
 
 //重载+和-
 template <class T>
-Array<T> &Array<T>::operator+(const Array<int> &b)
+Array<T> &Array<T>::operator+(const Array<T> &b)
 {
     if (&b != this)
     {
@@ -108,7 +109,7 @@ Array<T> &Array<T>::operator+(const Array<int> &b)
 
         else
         {
-            Array<int> c(size); //将c的内容
+            Array<T> c(size); //将c的内容
             for (int i = 0; i < size; i++)
             {
                 c.list[i] = list[i] + b.list[i];
@@ -119,7 +120,7 @@ Array<T> &Array<T>::operator+(const Array<int> &b)
 }
 
 template <class T>
-Array<T> &Array<T>::operator-(const Array<int> &b)
+Array<T> &Array<T>::operator-(const Array<T> &b)
 {
     if (&b != this)
     {
@@ -128,7 +129,7 @@ Array<T> &Array<T>::operator-(const Array<int> &b)
 
         else
         {
-            Array<int> c(size); //将c的内容
+            Array<T> c(size); //将c的内容
             for (int i = 0; i < size; i++)
             {
                 c.list[i] = list[i] - b.list[i];
@@ -190,14 +191,14 @@ T &Array<T>::operator[](int i)
 
 int main()
 {
-    Array<int> a(5);
-    Array<int> b(5);
+    Array<double> a(5);
+    Array<double> b(5);
     cout << "please input a and b:" << endl;
     cout << "a :";
     cin >> a;
     cout << "b :";
     cin >> b;
-    Array<int> c = b;
+    Array<double> c = b;
     cout << "a = " << a << endl;
     cout << "b = " << b << endl;
     cout << "c = " << c << endl;
