@@ -1,25 +1,21 @@
-class Solution:
-    def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        if s == '':
-            return 0
-        total_count = 1
-        for i in range(len(s) - 1):
-            stack = []
-            stack.append(s[i])
-            count = 1
-            for j in s[i+1:]:
-                if j in stack:
-                    break
-                else:
-                    stack.append(j)
-                    if count == 94:
-                        return 95
-                    else:
-                        count += 1
-            if total_count < count:
-                total_count = count
-        return total_count
+num = [2, 3, 1, 1, 4]
+
+def maxforword(a, nums):
+    step = nums[a]
+    return max(nums[a + 1:a+step])
+
+
+def jump(nums):
+    x = 0
+    count = 0
+    Length = len(nums)
+    while x + maxforword(x, nums) <= Length:
+        for y in range(x + 1, x + nums[x]):
+            if y == maxforword(x, nums):
+                x = y
+                break
+        count += 1
+    return count
+
+
+print(jump(num))
