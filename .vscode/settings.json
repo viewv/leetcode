@@ -35,6 +35,8 @@
     },
     "python.pythonPath": "/home/viewv/miniconda3/bin/python",
     "python.linting.pylintEnabled": false,
-    "python.linting.pep8Enabled": true,
-    "python.linting.enabled": true
+    "python.linting.pep8Enabled": false,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.prospectorEnabled": false
 }

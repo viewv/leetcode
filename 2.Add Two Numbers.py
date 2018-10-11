@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def addTwoNumbers(self, l1, l2):
         dummy = cur = ListNode(0)
@@ -15,8 +16,7 @@ class Solution:
             if l2:
                 carry += l2.val
                 l2 = l2.next
-            cur.next = ListNode(carry%10)
+            cur.next = ListNode(carry % 10)
             cur = cur.next
             carry //= 10
         return dummy.next
-                
