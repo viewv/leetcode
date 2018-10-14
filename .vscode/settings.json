@@ -33,10 +33,10 @@
         "xtr1common": "cpp",
         "xutility": "cpp"
     },
-    "python.pythonPath": "/home/viewv/miniconda3/bin/python",
-    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "C:\\Conda\\python.exe",
+    "python.linting.pylintEnabled": true,
     "python.linting.pep8Enabled": false,
     "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Enabled": false,
     "python.linting.prospectorEnabled": false
 }
