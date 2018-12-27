@@ -1,17 +1,12 @@
 class Solution(object):
     def findMaxLength(self, nums):
+        dic = {0: -1}
         count = 0
-        max_length = 0
-        table = {0: 0}
-        for index, num in enumerate(nums, 1):
-            if num == 0:
-                count -= 1
+        maxlen = 0
+        for x in range(0, len(nums)):
+            count += (1 if nums[x] == 1 else - 1)
+            if count not in dic:
+                dic[count] = x
             else:
-                count += 1
-
-            if count in table:
-                max_length = max(max_length, index - table[count])
-            else:
-                table[count] = index
-
-        return max_length
+                maxlen = max(maxlen, x - dic[count])
+        return maxlen

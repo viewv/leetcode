@@ -1,15 +1,15 @@
-def candy(ratings):
-    """
-    :type ratings: List[int]
-    :rtype: int
-    """
-    ans = [1 for x in range(0, len(ratings))]
-    for x in range(0, len(ratings) - 1):
-        if ratings[x] < ratings[x + 1]:
-            ans[x] = 1
-        if ratings[x] >= ratings[x + 1]:
-            ans[x + 1] = 1
-    return sum(ans)
+ans = []
 
 
-print(candy([1, 3, 2, 2, 1]))
+def seq(string):
+    if len(string) == 1:
+        return string
+    else:
+        a = string[0:1]
+        ans.append(a + seq(string[1:]))
+        ans.append(seq(string[1:]) + a)
+
+
+seq("abcde")
+
+print(ans)
