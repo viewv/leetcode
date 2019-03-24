@@ -1,19 +1,20 @@
-def maxArea(height):
+def findContentChildren(g, s):
     """
-    :type height: List[int]
+    :type g: List[int]
+    :type s: List[int]
     :rtype: int
     """
-    maxarea = 0
-    n = len(height)
-    for x in range(n-1):
-        area = 0
-        temp = height[x]
-        for y in range(x + 1, n):
-            if height[y] <= temp:
-                area += temp
-        if area > maxarea:
-            maxarea = area
-    return maxarea
+    g = sorted(g)
+    s = sorted(s)
+    ans = 0
+    start = 0
+    for x in range(0, len(s)):
+        for y in range(start, len(g)):
+            if s[x] >= g[y]:
+                ans += 1
+                start = y + 1
+    return ans
 
 
-print(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))
+print(findContentChildren([1, 2, 3], [1, 1]
+                          ))
