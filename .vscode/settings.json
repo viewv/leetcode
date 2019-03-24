@@ -33,7 +33,7 @@
         "xtr1common": "cpp",
         "xutility": "cpp"
     },
-    "python.pythonPath": "/home/viewv/miniconda3/bin/python",
+    "python.pythonPath": "/home/viewv/anaconda3/envs/DeepLearning/bin/python",
     "python.linting.pylintEnabled": true,
     "python.linting.pep8Enabled": false,
     "python.linting.enabled": true,
