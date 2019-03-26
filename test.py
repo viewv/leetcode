@@ -1,20 +1,34 @@
-def findContentChildren(g, s):
+def lemonadeChange(bills):
     """
-    :type g: List[int]
-    :type s: List[int]
-    :rtype: int
+    :type bills: List[int]
+    :rtype: bool
     """
-    g = sorted(g)
-    s = sorted(s)
-    ans = 0
-    start = 0
-    for x in range(0, len(s)):
-        for y in range(start, len(g)):
-            if s[x] >= g[y]:
-                ans += 1
-                start = y + 1
-    return ans
+    bill5 = []
+    bill10 = []
+    bill20 = []
+    for x in bills:
+        if x == 5:
+            bill5.append(1)
+        if x == 10:
+            bill10.append(1)
+            if len(bill5) == 0:
+                return False
+            else:
+                bill5.pop()
+        if x == 20:
+            bill20.append(1)
+            if len(bill5) == 0:
+                return False
+            if len(bill10) != 0:
+                bill10.pop()
+                bill5.pop()
+            else:
+                if len(bill5) < 3:
+                    return False
+                else:
+                    for y in range(3):
+                        bill5.pop()
+    return True
 
 
-print(findContentChildren([1, 2, 3], [1, 1]
-                          ))
+print(lemonadeChange([5, 5, 10]))
