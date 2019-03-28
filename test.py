@@ -1,20 +1,32 @@
-def canCompleteCircuit(gas, cost):
-    length = len(gas)
-    fill = 0
-    cum = [(x1 - x2) for x1, x2 in zip(gas, cost)]
-    start = cum.index(max(cum))
-    if cum[start] < 0:
-        return - 1
-    cur = start
-    while (cur + 1) % length != start:
-        cur = cur % length
-        fill = fill + gas[cur] - cost[cur]
-        if fill < 0:
-            return - 1
-        cur += 1
-    if fill + gas[cur] - cost[cur] >= 0:
-        return start
-    return - 1
+def removeKdigits(num, k):
+    numlength = len(num)
+    number = [int(x) for x in list(num)]
+    finalength = numlength - k
+    if finalength <= 0:
+        return "0"
+    start = 0
+    a = start
+    ans = []
+    ctrl = 0
+    need = finalength
+    b = numlength - need + 1
+    while ctrl < numlength - k:
+        temp = number[start]
+        a = start
+        for x in range(a, b):
+            if temp > number[x]:
+                temp = number[x]
+                start = x
+        ans.append(number[start])
+        ctrl += 1
+        start += 1
+        need -= 1
+        b = numlength - need + 1
+    ans = [str(x) for x in ans]
+    ans = ''.join(ans)
+    ans = int(ans)
+    ans = str(ans)
+    return ans
 
 
-print(canCompleteCircuit([2, 3, 4], [3, 4, 3]))
+print(removeKdigits("1107", 1))
