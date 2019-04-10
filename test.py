@@ -1,26 +1,11 @@
-def largestSumAfterKNegations(A, K):
-    """
-    :type A: List[int]
-    :type K: int
-    :rtype: int
-    """
-    a = sorted(A)
-    x = 0
-    n = len(A)
-    while x < n and K > 0:
-        if a[x] < 0:
-            a[x] *= -1
-            x += 1
-            K -= 1
-        elif a[x] == 0:
-            break
-        else:
-            if K % 2 == 0:
-                break
-            else:
-                a[x] *= -1
-                break
-    return sum(a)
+def gcd(a, b):
+    if b == 0:
+        return (1, 0)
+    else:
+        q, r = a//b, a % b
+        s, t = gcd(b, r)
+        return (t, s-q*t)
 
 
-print(largestSumAfterKNegations([3, -1, 0, 2], 3))
+print(gcd(3, 11))
+# print(gcd(435 ** 765, 2579))
