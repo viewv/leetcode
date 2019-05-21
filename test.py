@@ -7,5 +7,6 @@ def gcd(a, b):
         return (t, s-q*t)
 
 
-print(gcd(3, 11))
+ans = gcd(3533, 11200)
+print(ans)
 # print(gcd(435 ** 765, 2579))
