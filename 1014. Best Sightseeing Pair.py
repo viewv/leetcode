@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def maxScoreSightseeingPair(self, A: List[int]) -> int:
         length = len(A)
