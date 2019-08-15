@@ -4,14 +4,15 @@ class Solution:
         :type s: str
         :rtype: int
         """
-        ans = 0
-        stack = []
-        s = list(s)
-        for x in s:
-            if x == '(':
-                stack.append(x)
-            if x == ')':
-                if len(stack) != 0:
-                    ans += 2
+        stack, res = [], 0
+        for i, c in enumerate(s):
+            if c == '(':
+                stack.append(i)
+            else:
+                if stack and s[stack[-1]] == '(':
                     stack.pop()
-        return ans
+                    res = max(res, i + 1) if not stack else max(res,
+                                                                i - stack[-1])
+                else:
+                    stack.append(i)
+        return res
