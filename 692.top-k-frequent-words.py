@@ -1,4 +1,8 @@
-from typing import List
+#
+# @lc app=leetcode id=692 lang=python3
+#
+# [692] Top K Frequent Words
+#
 
 
 class Solution:
@@ -10,10 +14,3 @@ class Solution:
         l = sorted(l, key=lambda x: (x[1], x[0]))
         l = [x[0] for x in l[:k]]
         return l
-
-
-sol = Solution()
-word = ["i", "love", "leetcode", "i", "love", "coding"]
-
-l = sol.topKFrequent(word, 2)
-print(l)
