@@ -1,3 +1,10 @@
+#
+# @lc app=leetcode id=650 lang=python3
+#
+# [650] 2 Keys Keyboard
+#
+
+
 class Solution:
     def _maxlim(self, num):
         res = num // 2
@@ -10,7 +17,7 @@ class Solution:
     def minSteps(self, n):
         res, times = self._maxlim(n)
         if n == 1:
-            return 1
+            return 0
         if n == 2:
             return 2
         if n == 3:
@@ -29,7 +36,3 @@ class Solution:
                 else:
                     dp[x] = dp[r] + t
             return dp[n]
-
-
-sol = Solution()
-print(sol.minSteps(8))
