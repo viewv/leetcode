@@ -1,4 +1,8 @@
-import typing
+#
+# @lc app=leetcode id=415 lang=python3
+#
+# [415] Add Strings
+#
 
 
 class Solution:
@@ -16,7 +20,3 @@ class Solution:
         num2 = self._tonum(num2)
         num = num1 + num2
         return str(num)
-
-
-sol = Solution()
-print(sol.addStrings("123", "4"))
