@@ -1,4 +1,8 @@
-from typing import List
+#
+# @lc app=leetcode id=17 lang=python3
+#
+# [17] Letter Combinations of a Phone Number
+#
 
 
 class Solution:
@@ -22,7 +26,3 @@ class Solution:
                     temp.append(word)
             res = temp
         return res
-
-
-sol = Solution()
-print(sol.letterCombinations("9"))
