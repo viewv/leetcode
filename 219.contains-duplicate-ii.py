@@ -1,4 +1,8 @@
-from typing import List
+#
+# @lc app=leetcode id=219 lang=python3
+#
+# [219] Contains Duplicate II
+#
 
 
 class Solution:
@@ -13,7 +17,3 @@ class Solution:
                 else:
                     d[n] = x
         return False
-
-
-sol = Solution()
-print(sol.containsNearbyDuplicate([1, 2, 3, 1], 3))
