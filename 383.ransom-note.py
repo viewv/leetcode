@@ -1,4 +1,8 @@
-from typing import List
+#
+# @lc app=leetcode id=383 lang=python3
+#
+# [383] Ransom Note
+#
 
 
 class Solution:
@@ -15,7 +19,3 @@ class Solution:
             else:
                 d[s] -= 1
         return True
-
-
-sol = Solution()
-print(sol.canConstruct("aa", "acab"))
