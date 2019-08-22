@@ -1,4 +1,8 @@
-from typing import List
+#
+# @lc app=leetcode id=347 lang=python3
+#
+# [347] Top K Frequent Elements
+#
 
 
 class Solution:
@@ -7,10 +11,5 @@ class Solution:
         for x in nums:
             d[x] += 1
         d = d.items()
-        print(d)
         d = sorted(d, key=lambda x: x[1], reverse=True)
         return [x[0] for x in d[:k]]
-
-
-sol = Solution()
-print(sol.topKFrequent([1, 1, 1, 2, 2, 3], 2))
