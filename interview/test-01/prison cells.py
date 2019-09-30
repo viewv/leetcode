@@ -1,7 +1,3 @@
-
-from typing import List
-
-
 class Solution:
     def prisonAfterNDays(self, cells: List[int], N: int) -> List[int]:
         flag_zero = 'z'
@@ -22,7 +18,3 @@ class Solution:
                 else:
                     cells[i] = 0
         return cells
-
-
-sol = Solution()
-print(sol.prisonAfterNDays([1, 0, 0, 1, 0, 0, 1, 0], 1000000000))
