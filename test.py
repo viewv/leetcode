@@ -27,10 +27,30 @@
 # sol = Solution()
 # print(sol.prisonAfterNDays([1, 0, 0, 1, 0, 0, 1, 0], 1000000000))
 
-def gcd(a, b):
-    while a != b:
-        a, b = ((a - b), b) if a > b else ((b - a), a)
-    return a
+# def gcd(a, b):
+#     while a != b:
+#         a, b = ((a - b), b) if a > b else ((b - a), a)
+#     return a
 
 
-print(gcd(5, 10))
+# print(gcd(5, 10))
+
+import math
+
+
+class Solution:
+    def baseNeg2(self, N: int) -> str:
+        number_list = []
+        if N == 0:
+            return '0'
+        while N != 0:
+            k = math.ceil(N / -2)
+            r = N - k * (-2)
+            number_list.append(r)
+            N = k
+        number = ''.join([str(x) for x in number_list[::-1]])
+        return number
+
+
+sol = Solution()
+print(sol.baseNeg2(100))
