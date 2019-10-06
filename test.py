@@ -142,37 +142,61 @@
 # sol = Solution()
 # print(sol.isRationalEqual("0.08(9)", "0.09"))
 
-from typing import List
+# from typing import List
 
+
+# class Solution:
+#     def atMostNGivenDigitSet(self, D: List[str], N: int) -> int:
+#         d = [int(x) for x in D]
+#         s = set(d)
+#         l = [0 for x in range(11)]
+#         for x in d:
+#             for y in range(x, 11):
+#                 l[y] += 1
+#         ans = 0
+#         num = [int(x) for x in list(str(N))]
+#         length = len(num)
+#         count = len(s)
+#         for i in range(length):
+#             if num[i] not in s:
+#                 for j in range(l[num[i]]):
+#                     ans += count ** (length - i - 1)
+#             else:
+#                 for j in range(l[num[i]] - 1):
+#                     ans += count ** (length - i - 1)
+#                 temp = 1
+#                 for j in range(i + 1, length):
+#                     temp *= l[num[j]]
+#                 ans += temp
+#             for k in range(i + 1, length):
+#                 num[k] = 9
+#         return ans
+
+# from typing import List
+
+
+# class Solution:
+#     def sumSubseqWidths(self, A: List[int]) -> int:
+#         p = 1
+#         ans = 0
+#         A = sorted(A)
+#         n = len(A)
+#         Mod = 10 ** 9 + 7
+#         for i in range(n):
+#             ans += (A[i] - A[n - i - 1]) * (p % Mod)
+#             p = p << 1 % Mod
+#         return ans % Mod
 
 class Solution:
-    def atMostNGivenDigitSet(self, D: List[str], N: int) -> int:
-        d = [int(x) for x in D]
-        s = set(d)
-        l = [0 for x in range(11)]
-        for x in d:
-            for y in range(x, 11):
-                l[y] += 1
+    def countPrimeSetBits(self, L: int, R: int) -> int:
         ans = 0
-        num = [int(x) for x in list(str(N))]
-        length = len(num)
-        count = len(s)
-        for i in range(length):
-            if num[i] not in s:
-                for j in range(l[num[i]]):
-                    ans += count ** (length - i - 1)
-            else:
-                for j in range(l[num[i]] - 1):
-                    ans += count ** (length - i - 1)
-                temp = 1
-                for j in range(i + 1, length):
-                    temp *= l[num[j]]
-                ans += temp
-            for k in range(i + 1, length):
-                num[k] = 9
+        s = [0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1]
+        for x in range(L, R + 1):
+            num = bin(x).count('1')
+            if s[num] == 1:
+                ans += 1
         return ans
 
 
 sol = Solution()
-print(sol.atMostNGivenDigitSet(
-    ["1", "4", "9"], 1000000000))
+print(sol.countPrimeSetBits(10, 15))
