@@ -187,16 +187,35 @@
 #             p = p << 1 % Mod
 #         return ans % Mod
 
+# class Solution:
+#     def countPrimeSetBits(self, L: int, R: int) -> int:
+#         ans = 0
+#         s = [0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1]
+#         for x in range(L, R + 1):
+#             num = bin(x).count('1')
+#             if s[num] == 1:
+#                 ans += 1
+#         return ans
+
+from typing import List
+
+
 class Solution:
-    def countPrimeSetBits(self, L: int, R: int) -> int:
-        ans = 0
-        s = [0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1]
-        for x in range(L, R + 1):
-            num = bin(x).count('1')
-            if s[num] == 1:
-                ans += 1
+    def test(self, num: int):
+        nums = [int(x) for x in str(num)]
+        for x in nums:
+            if x == 0 or num % x != 0:
+                return False
+        return True
+
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        number = [x for x in range(left, right + 1)]
+        ans = []
+        for x in number:
+            if self.test(x):
+                ans.append(x)
         return ans
 
 
 sol = Solution()
-print(sol.countPrimeSetBits(10, 15))
+print(sol.selfDividingNumbers(1, 22))
