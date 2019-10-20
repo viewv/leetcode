@@ -197,25 +197,50 @@
 #                 ans += 1
 #         return ans
 
+
+# class Solution:
+#     def test(self, num: int):
+#         nums = [int(x) for x in str(num)]
+#         for x in nums:
+#             if x == 0 or num % x != 0:
+#                 return False
+#         return True
+
+#     def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+#         number = [x for x in range(left, right + 1)]
+#         ans = []
+#         for x in number:
+#             if self.test(x):
+#                 ans.append(x)
+#         return ans
+
 from typing import List
 
 
 class Solution:
-    def test(self, num: int):
-        nums = [int(x) for x in str(num)]
-        for x in nums:
-            if x == 0 or num % x != 0:
+    def test(self, n):
+        if n in (2, 3):
+            return True
+        flag = int(n ** 0.5)
+        for x in range(2, flag + 1):
+            if n % x == 0:
                 return False
         return True
 
-    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
-        number = [x for x in range(left, right + 1)]
-        ans = []
-        for x in number:
-            if self.test(x):
-                ans.append(x)
+    def countPrimes(self, n: int) -> int:
+        nums = [x for x in range(n)]
+        ans = 0
+        for x in range(2, n):
+            if nums[x] != 0 and self.test(nums[x]):
+                ans += 1
+                k = 2
+                temp = k * x
+                while temp < n:
+                    nums[temp] = 0
+                    k += 1
+                    temp = k * x
         return ans
 
 
 sol = Solution()
-print(sol.selfDividingNumbers(1, 22))
+print(sol.countPrimes(2))
