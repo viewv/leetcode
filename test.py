@@ -214,33 +214,38 @@
 #                 ans.append(x)
 #         return ans
 
-from typing import List
-
-
 class Solution:
-    def test(self, n):
-        if n in (2, 3):
-            return True
-        flag = int(n ** 0.5)
-        for x in range(2, flag + 1):
-            if n % x == 0:
-                return False
-        return True
+    # def test(self, n):
+    #     if n in (2, 3):
+    #         return True
+    #     if n % 2 == 0:
+    #         return False
+    #     flag = int(n ** 0.5)
+    #     for x in range(2, flag + 1):
+    #         if n % x == 0:
+    #             return False
+    #     return True
 
     def countPrimes(self, n: int) -> int:
-        nums = [x for x in range(n)]
+        #nums = [x for x in range(n)]
         ans = 0
-        for x in range(2, n):
-            if nums[x] != 0 and self.test(nums[x]):
-                ans += 1
-                k = 2
-                temp = k * x
-                while temp < n:
-                    nums[temp] = 0
-                    k += 1
-                    temp = k * x
-        return ans
+        IsPrime = [True] * (n + 1)
+        for i in range(2, int(n ** 0.5) + 1):
+            if IsPrime[i]:
+                for j in range(i * i, n + 1, i):
+                    IsPrime[j] = False
+        return len([x for x in range(2, n + 1) if IsPrime[x]])
+        # for x in range(2, n):
+        #     if nums[x] != 0 and self.test(nums[x]):
+        #         ans += 1
+        #         k = 1
+        #         temp = k * x
+        #         while temp < n:
+        #             nums[temp] = 0
+        #             k += 1
+        #             temp = k * x
+        # return ans
 
 
 sol = Solution()
-print(sol.countPrimes(2))
+print(sol.countPrimes(1000000))
