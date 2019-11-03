@@ -214,38 +214,25 @@
 #                 ans.append(x)
 #         return ans
 
-class Solution:
-    # def test(self, n):
-    #     if n in (2, 3):
-    #         return True
-    #     if n % 2 == 0:
-    #         return False
-    #     flag = int(n ** 0.5)
-    #     for x in range(2, flag + 1):
-    #         if n % x == 0:
-    #             return False
-    #     return True
+from typing import List
 
-    def countPrimes(self, n: int) -> int:
-        #nums = [x for x in range(n)]
-        ans = 0
-        IsPrime = [True] * (n + 1)
-        for i in range(2, int(n ** 0.5) + 1):
-            if IsPrime[i]:
-                for j in range(i * i, n + 1, i):
-                    IsPrime[j] = False
-        return len([x for x in range(2, n + 1) if IsPrime[x]])
-        # for x in range(2, n):
-        #     if nums[x] != 0 and self.test(nums[x]):
-        #         ans += 1
-        #         k = 1
-        #         temp = k * x
-        #         while temp < n:
-        #             nums[temp] = 0
-        #             k += 1
-        #             temp = k * x
-        # return ans
+
+class Solution:
+    def minCostToMoveChips(self, chips: List[int]) -> int:
+        cost = 0
+        l = len(chips)
+        if l == 0:
+            return 0
+        if l == 1:
+            return 0
+        loc = dict(set(chips))
+        for x in chips:
+            
+        for x in range(1, l):
+            if abs(chips[x] - init) % 2 != 0:
+                cost += 1
+        return cost
 
 
 sol = Solution()
-print(sol.countPrimes(1000000))
+print(sol.minCostToMoveChips([2, 3, 3]))
