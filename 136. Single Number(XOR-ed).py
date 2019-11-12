@@ -1,4 +1,4 @@
-#copy from Leetcode, really a good way!
+# copy from Leetcode, really a good way!
 class Solution:
     def singleNumber(self, nums):
         # using XOR method
@@ -6,6 +6,8 @@ class Solution:
         for n in nums:
             single_num ^= n
         return single_num
+
+
 '''
 if two number is different like 1010 and 1010
     1010 xor 1010 = 0 so when a group of number
