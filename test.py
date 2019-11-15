@@ -187,16 +187,17 @@
 #             p = p << 1 % Mod
 #         return ans % Mod
 
-class Solution:
-    def countPrimeSetBits(self, L: int, R: int) -> int:
-        ans = 0
-        s = [0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1]
-        for x in range(L, R + 1):
-            num = bin(x).count('1')
-            if s[num] == 1:
-                ans += 1
-        return ans
+
+from typing import List
+from collections import defaultdict
+from itertools import accumulate
 
 
-sol = Solution()
-print(sol.countPrimeSetBits(10, 15))
+# class Solution:
+#     def subarraySum(self, nums: List[int], k: int) -> int:
+#         ans = 0
+#         seen = defaultdict(int, {0: 1})
+#         for x in accumulate(nums):
+#             ans += seen[x - k]
+#             seen[x] += 1
+#         return ans
