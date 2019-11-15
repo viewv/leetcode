@@ -277,19 +277,42 @@ from typing import List
 #             ans.append(total)
 #         return ans
 
-class Solution:
-    def singleNumber(self, nums):
-        l = len(nums)
-        for x in range(l):
-            flag = 1
-            for y in range(l):
-                if x != y:
-                    if nums[x] == nums[y]:
-                        flag = 0
-                        break
-            if flag == 1:
-                return nums[x]
+# class Solution:
+#     def singleNumber(self, nums):
+#         l = len(nums)
+#         for x in range(l):
+#             flag = 1
+#             for y in range(l):
+#                 if x != y:
+#                     if nums[x] == nums[y]:
+#                         flag = 0
+#                         break
+#             if flag == 1:
+#                 return nums[x]
 
 
-sol = Solution()
-print(sol.singleNumber([5, 7, 3, 4, 4, 3, 5]))
+# sol = Solution()
+# print(sol.singleNumber([5, 7, 3, 4, 4, 3, 5]))
+
+class TreeNode:
+    def __init__(self, x,i):
+        self.i = i
+        self.val = x
+        self.left = None
+        self.right = None
+
+TreeNoderoot = None
+
+length = int(input())
+cnt = 0
+
+def build(root):
+    get = [int(x) for x in input().split()]
+    l = get[0]
+    r = get[1]
+    root.left = None
+    root.right = None
+    if l != -1:
+        root.left = TreeNode
+
+    
