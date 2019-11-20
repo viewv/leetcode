@@ -1,4 +1,10 @@
-from typing import List
+#
+# @lc app=leetcode id=125 lang=python3
+#
+# [125] Valid Palindrome
+#
+
+# @lc code=start
 
 
 class Solution:
@@ -18,5 +24,4 @@ class Solution:
         return True
 
 
-sol = Solution()
-print(sol.isPalindrome("0P"))
+# @lc code=end
