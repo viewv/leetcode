@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Solution:
     def climbStairs(self, n: int) -> int:
         dp = [1 for x in range(n)]
@@ -9,7 +6,3 @@ class Solution:
         for i in range(2, n):
             dp[i] = dp[i - 1] + dp[i - 2]
         return dp[n-1]
-
-
-sol = Solution()
-print(sol.climbStairs(11))
