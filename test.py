@@ -2,21 +2,22 @@ from typing import List
 
 
 class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        l = list()
-        for x in s:
-            if x.isalpha() or x.isalnum():
-                l.append(x.lower())
-        length = len(l)
+    def maxArea(self, height: List[int]) -> int:
+        maxarea = 0
+        n = len(height)
         i = 0
-        j = length - 1
-        while i <= j:
-            if l[i] != l[j]:
-                return False
-            i += 1
-            j -= 1
-        return True
+        j = n - 1
+        while i < j:
+            if height[i] <= height[j]:
+                area = height[i] * (j - i)
+                i += 1
+            else:
+                area = height[j] * (j - i)
+                j -= 1
+            if area > maxarea:
+                maxarea = area
+        return maxarea
 
 
 sol = Solution()
-print(sol.isPalindrome("0P"))
+print(sol.maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))

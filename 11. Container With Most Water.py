@@ -1,17 +1,16 @@
 class Solution:
-    def maxArea(self, height):
-        """
-        :type height: List[int]
-        :rtype: int
-        """
+    def maxArea(self, height: List[int]) -> int:
         maxarea = 0
         n = len(height)
-        for x in range(n-1):
-            area = 0
-            temp = height[x]
-            for y in range(x + 1, n):
-                if height[y] >= temp:
-                    area += temp
+        i = 0
+        j = n - 1
+        while i < j:
+            if height[i] <= height[j]:
+                area = height[i] * (j - i)
+                i += 1
+            else:
+                area = height[j] * (j - i)
+                j -= 1
             if area > maxarea:
                 maxarea = area
         return maxarea
