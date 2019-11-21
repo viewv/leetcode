@@ -1,6 +1,3 @@
-from typing import List
-
-
 from itertools import product, compress
 
 
@@ -11,8 +8,3 @@ class Solution:
             temp = list(compress(candidates, pattern))
             if sum(temp) == target:
                 ans.append(temp)
-        return ans
-
-
-sol = Solution()
-print(sol.combinationSum([2, 3, 6, 7], 7))
