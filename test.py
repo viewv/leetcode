@@ -1,27 +1,8 @@
+from typing import List
 
-# from typing import List
 
+from itertools import product, compress
 
-# class Solution:
-#     def prisonAfterNDays(self, cells: List[int], N: int) -> List[int]:
-#         flag_zero = 'z'
-#         flag_one = 'o'
-#         number_prison = len(cells)
-#         for x in range(N):
-#             past = [x for x in cells]
-#             cells[0] = flag_zero
-#             cells[number_prison - 1] = flag_zero
-#             for i in range(1, number_prison - 1):
-#                 if past[i - 1] == past[i + 1]:
-#                     cells[i] = flag_one
-#                 else:
-#                     cells[i] = flag_zero
-#             for i, c in enumerate(cells):
-#                 if c == flag_one:
-#                     cells[i] = 1
-#                 else:
-#                     cells[i] = 0
-#         return cells
 
 
 # sol = Solution()
@@ -214,68 +195,24 @@
 #                 ans.append(x)
 #         return ans
 
-# from typing import List
-
-
-# class Solution:
-#     def minCostToMoveChips(self, chips: List[int]) -> int:
-#         cost = 0
-#         l = len(chips)
-#         if l == 0:
-#             return 0
-#         if l == 1:
-#             return 0
-#         loc = dict(set(chips))
-#         for x in chips:
-
-#         for x in range(1, l):
-#             if abs(chips[x] - init) % 2 != 0:
-#                 cost += 1
-#         return cost
-
-
-# sol = Solution()
-# print(sol.minCostToMoveChips([2, 3, 3]))
-
-
-# def powerset(s):
-#     n = len(s)
-#     masks = [1 << j for j in range(n)]
-#     for i in range(2 ** n):
-#         yield [s[j] for j in range(n) if (masks[j] & i)]
-
-
-# if __name__ == "__main__":
-#     for elem in powerset([1, 2, 3]):
-#         print(elem)
-
-
 from typing import List
 
 
-# class Solution:
-#     def findNumOfValidWords(self, words: List[str], puzzles: List[str]) -> List[int]:
-#         ans = []
-#         freq = dict()
-#         for word in words:
-#             mask = 0
-#             for c in word:
-#                 mask = mask | (1 << (ord(c) - 97))
-#             if mask not in freq:
-#                 freq[mask] = 0
-#             freq[mask] += 1
-#         for p in puzzles:
-#             total = 0
-#             l = len(p) - 1
-#             for i in range(0, 1 << l):
-#                 mask = 1 << (ord(p[0]) - 97)
-#                 for j in range(0, l):
-#                     if i & (1 << j):
-#                         mask = mask | (1 << (ord(p[j + 1]) - 97))
-#                 if mask in freq:
-#                     total += freq[mask]
-#             ans.append(total)
-#         return ans
+class Solution:
+    def minCostToMoveChips(self, chips: List[int]) -> int:
+        cost = 0
+        l = len(chips)
+        if l == 0:
+            return 0
+        if l == 1:
+            return 0
+        loc = dict(set(chips))
+        for x in chips:
+            
+        for x in range(1, l):
+            if abs(chips[x] - init) % 2 != 0:
+                cost += 1
+        return cost
 
 # class Solution:
 #     def singleNumber(self, nums):
@@ -290,6 +227,8 @@ from typing import List
 #             if flag == 1:
 #                 return nums[x]
 
+sol = Solution()
+print(sol.minCostToMoveChips([2, 3, 3]))
 
 # sol = Solution()
 # print(sol.singleNumber([5, 7, 3, 4, 4, 3, 5]))
