@@ -4,7 +4,6 @@ from typing import List
 from itertools import product, compress
 
 
-
 # sol = Solution()
 # print(sol.prisonAfterNDays([1, 0, 0, 1, 0, 0, 1, 0], 1000000000))
 
@@ -178,80 +177,25 @@ from itertools import product, compress
 #                 ans += 1
 #         return ans
 
-
-# class Solution:
-#     def test(self, num: int):
-#         nums = [int(x) for x in str(num)]
-#         for x in nums:
-#             if x == 0 or num % x != 0:
-#                 return False
-#         return True
-
-#     def selfDividingNumbers(self, left: int, right: int) -> List[int]:
-#         number = [x for x in range(left, right + 1)]
-#         ans = []
-#         for x in number:
-#             if self.test(x):
-#                 ans.append(x)
-#         return ans
-
-from typing import List
-
-
 class Solution:
-    def minCostToMoveChips(self, chips: List[int]) -> int:
-        cost = 0
-        l = len(chips)
-        if l == 0:
-            return 0
-        if l == 1:
-            return 0
-        loc = dict(set(chips))
-        for x in chips:
-            
-        for x in range(1, l):
-            if abs(chips[x] - init) % 2 != 0:
-                cost += 1
-        return cost
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        dstot = {}
+        dttos = {}
+        l = len(s)
+        for x in range(l):
+            if s[x] in dstot and t[x] in dttos:
+                if dstot[s[x]] != t[x] or dttos[t[x]] != s[x]:
+                    return False
+            elif s[x] in dstot and t[x] not in dttos:
+                return False
+            elif s[x] not in dstot and t[x] in dttos:
+                return False
+            else:
+                dstot[s[x]] = t[x]
+                dttos[t[x]] = s[x]
+        return True
 
-# class Solution:
-#     def singleNumber(self, nums):
-#         l = len(nums)
-#         for x in range(l):
-#             flag = 1
-#             for y in range(l):
-#                 if x != y:
-#                     if nums[x] == nums[y]:
-#                         flag = 0
-#                         break
-#             if flag == 1:
-#                 return nums[x]
 
 sol = Solution()
-print(sol.minCostToMoveChips([2, 3, 3]))
 
-# sol = Solution()
-# print(sol.singleNumber([5, 7, 3, 4, 4, 3, 5]))
-
-class TreeNode:
-    def __init__(self, x,i):
-        self.i = i
-        self.val = x
-        self.left = None
-        self.right = None
-
-TreeNoderoot = None
-
-length = int(input())
-cnt = 0
-
-def build(root):
-    get = [int(x) for x in input().split()]
-    l = get[0]
-    r = get[1]
-    root.left = None
-    root.right = None
-    if l != -1:
-        root.left = TreeNode
-
-    
+print(sol.isIsomorphic("aa", "aa"))
