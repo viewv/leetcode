@@ -178,24 +178,22 @@ from itertools import product, compress
 #         return ans
 
 class Solution:
-    def isIsomorphic(self, s: str, t: str) -> bool:
-        dstot = {}
-        dttos = {}
-        l = len(s)
-        for x in range(l):
-            if s[x] in dstot and t[x] in dttos:
-                if dstot[s[x]] != t[x] or dttos[t[x]] != s[x]:
-                    return False
-            elif s[x] in dstot and t[x] not in dttos:
-                return False
-            elif s[x] not in dstot and t[x] in dttos:
-                return False
-            else:
-                dstot[s[x]] = t[x]
-                dttos[t[x]] = s[x]
-        return True
+    def singleNonDuplicate(self, nums: List[int]) -> int:
+        now = nums[0]
+        times = 1
+        l = len(nums)
+        for x in range(1,l):
+            if nums[x] == now:
+                times += 1
+            if nums[x] != now:
+                if times == 1:
+                    return now
+                else:
+                    times = 1
+                    now = nums[x]
+        return now
 
 
 sol = Solution()
 
-print(sol.isIsomorphic("aa", "aa"))
+print(sol.singleNonDuplicate([1]))
