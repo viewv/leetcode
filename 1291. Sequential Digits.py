@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Solution:
     def sequentialDigits(self, low: int, high: int) -> List[int]:
         nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -19,8 +16,3 @@ class Solution:
                 else:
                     ans.append(temp)
         return sorted(ans)
-
-
-sol = Solution()
-
-print(sol.sequentialDigits(1000,13000))
