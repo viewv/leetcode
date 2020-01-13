@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Solution:
     def getMaximumGold(self, grid: List[List[int]]) -> int:
         lx = len(grid)
@@ -57,8 +54,3 @@ class Solution:
                     mined.append(grid[x][y])
                     dfs([x, y])
         return maxgold
-
-sol = Solution()
-
-print(sol.getMaximumGold(
-    [[0, 6, 0], [5, 8, 7], [0, 9, 0]]))
