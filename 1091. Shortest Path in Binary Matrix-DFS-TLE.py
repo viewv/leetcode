@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
         ans = 1 << 32
@@ -31,7 +28,7 @@ class Solution:
             return False
 
         def dfs(curr):
-            if not testall(curr) or (curr[0] == n - 1 and curr[1] == n - 1):
+            if not testall(curr):
                 if curr[0] == n - 1 and curr[1] == n - 1:
                     nonlocal path
                     nonlocal ans
@@ -60,9 +57,4 @@ class Solution:
             return -1
         else:
             return ans
-
-
-
-sol = Solution()
-
-print(sol.shortestPathBinaryMatrix([[0, 0, 0], [1, 0, 0], [1, 1, 0]]))
+#!TLE

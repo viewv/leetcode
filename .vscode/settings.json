@@ -34,7 +34,7 @@
         "xutility": "cpp",
         "vector": "cpp"
     },
-    "python.pythonPath": "/Users/viewv/anaconda3/bin/python",
+    "python.pythonPath": "/Users/viewv/miniconda3/bin/python",
     "python.linting.pylintEnabled": true,
     "python.linting.pycodestyleEnabled": false,
     "python.linting.enabled": true,
