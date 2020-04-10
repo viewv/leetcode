@@ -10,3 +10,5 @@ test.cpp
 test
 .vscode/settings.json
 .vscode/settings.json
+*.out
+test.out.dSYM/Contents/Resources/DWARF/test.out

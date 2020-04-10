@@ -14,7 +14,7 @@
             //"environment": [],
             //"externalConsole": true,
             //"MIMode": "lldb",
-            "terminal": "integrated",
+            "terminal": "external",
             "preLaunchTask": "build cpp",
         },
         {
