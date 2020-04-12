@@ -1,36 +1,45 @@
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from typing import List
+import heapq
+
+
+class BigHeap:
+    arr = []
+
+    def init(self):
+        self.arr = list()
+
+    def heap_insert(self, val):
+        heapq.heappush(self.arr, -val)
+
+    def heapify(self):
+        heapq.heapify(self.arr)
+
+    def heap_pop(self):
+        return - heapq.heappop(self.arr)
+
+    def heap_size(self):
+        return len(self.arr)
+
+    def get_top(self):
+        if not self.arr:
+            return
+        return - self.arr[0]
 
 
 class Solution:
-    def diameterOfBinaryTree(self, root: TreeNode) -> int:
-        maxdepth = 1
-        head = root
-
-        def dfs(head):
-            nonlocal maxdepth
-            if not head:
-                return 0
-            l = dfs(head.left)
-            r = dfs(head.right)
-            maxdepth = max(maxdepth, l+r+1)
-            return max(l, r) + 1
-        dfs(head)
-        return maxdepth - 1
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        h = BigHeap()
+        for x in stones:
+            h.heap_insert(x)
+        while h.heap_size() > 1:
+            y = h.heap_pop()
+            x = h.heap_pop()
+            if x != y:
+                h.heap_insert(y - x)
+        if h.heap_size() == 0:
+            return 0
+        return h.heap_pop()
 
 
-root = TreeNode(1)
-a = TreeNode(2)
-a1 = TreeNode(4)
-a2 = TreeNode(5)
-a.left = a1
-a.right = a2
-b = TreeNode(3)
-root.left = a
-root.right = b
 sol = Solution()
-print(sol.diameterOfBinaryTree(root))
+print(sol.lastStoneWeight([1]))
